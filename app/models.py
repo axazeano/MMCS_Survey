@@ -1,6 +1,6 @@
 import datetime
 from flask import url_for
-from MMCS_Survey import db
+from app import db
 
 class BasicSurvey(db.Document):
     created_at = db.DateTimeField(default=datetime.datetime.now, required=True)
