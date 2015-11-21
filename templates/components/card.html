@@ -1,0 +1,19 @@
+{% block card %}
+<div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{% block image %}/static/img/sample.jpg{% endblock %}">
+                            <span class="card-title"></span>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                {% block label %}
+                                 Приняв участие в опросе,
+                                 вы поможете улучшить качество преподаваемых дисциплин,
+                                 повысить их доступность и актуальность
+                                {% endblock %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}
