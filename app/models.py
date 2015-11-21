@@ -17,3 +17,41 @@ class BasicSurvey(db.Document):
     #     'indexes': ['-created_at', 'slug'],
     #     'ordering': ['-created_at']
     # }
+
+
+class BaseForm(db.Document):
+    title = db.StringField(max_length=255, required=True)
+    controllers = db.ListField(db.EmbeddedDocumentField('BaseFormController'))
+
+    def __unicode__(self):
+        return self.title
+
+
+class BaseFormController(db.EmbeddedDocument):
+    title = db.StingField(max_length=255, required=True)
+    controllers = db.ListField(db.EmbeddedDocumentField('BaseController'))
+
+    def __unicode__(self):
+        return self.title
+
+
+class BaseController(db.EmbeddedDocument):
+    title = db.StingField(max_length=255, require=True)
+    type = db.StringField(max_length=255, require=True)
+
+    def __unicode__(self):
+        return self.title
+
+
+class RadioButton(BaseController):
+    def __init__(self, title):
+        super(BaseController, self).__init__()
+        self.title = title
+        self.type = 'radiobutton'
+
+
+class CheckBox(BaseController):
+    def __init__(self, title):
+        super(BaseController, self).__init__()
+        self.title = title
+        self.type = 'checkbox'
