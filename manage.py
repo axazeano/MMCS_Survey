@@ -1,12 +1,12 @@
 import os, sys
+
+from flask.ext.mongoengine import MongoEngine
 from flask.ext.script import Manager, Server, Shell
-from app import create_app, db, models
+from app import app, db, models
 
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
 
-
-app = create_app()
 manager = Manager(app)
 
 manager.add_command("runserver", Server(

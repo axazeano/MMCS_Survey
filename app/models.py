@@ -19,28 +19,14 @@ class BasicSurvey(db.Document):
     # }
 
 
-class BaseForm(db.Document):
-    title = db.StringField(max_length=255, required=True)
-    controllers = db.ListField(db.EmbeddedDocumentField('BaseFormController'))
-
-    def __unicode__(self):
-        return self.title
-
-
-class BaseFormController(db.EmbeddedDocument):
-    title = db.StingField(max_length=255, required=True)
-    controllers = db.ListField(db.EmbeddedDocumentField('BaseController'))
-
-    def __unicode__(self):
-        return self.title
-
-
 class BaseController(db.EmbeddedDocument):
-    title = db.StingField(max_length=255, require=True)
-    type = db.StringField(max_length=255, require=True)
+    title = db.StringField(max_length=255, required=True)
+    type = db.StringField(max_length=255, required=True)
 
     def __unicode__(self):
         return self.title
+
+    meta = {'allow_inheritance': True}
 
 
 class RadioButton(BaseController):
@@ -55,3 +41,23 @@ class CheckBox(BaseController):
         super(BaseController, self).__init__()
         self.title = title
         self.type = 'checkbox'
+
+
+class BaseFormController(db.EmbeddedDocument):
+    title = db.StringField(max_length=255, required=True)
+    controllers = db.ListField(db.EmbeddedDocumentField('BaseController'))
+
+    def __unicode__(self):
+        return self.title
+
+    meta = {'allow_inheritance': True}
+
+
+class BaseForm(db.Document):
+    title = db.StringField(max_length=255, required=True)
+    controllers = db.ListField(db.EmbeddedDocumentField('BaseFormController'))
+
+    def __unicode__(self):
+        return self.title
+
+    meta = {'allow_inheritance': True}
