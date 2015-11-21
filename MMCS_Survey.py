@@ -4,8 +4,8 @@ from flask.ext.mongoengine import MongoEngine
 
 app = Flask(__name__)
 
-app.config["MONGODB_SETTINGS"] = {'DB': "my_tumble_log"}
-app.config["SECRET_KEY"] = "KeepThisS3cr3t"
+app.config["MONGODB_SETTINGS"] = {'DB': "MMCS_survey"}
+app.config["SECRET_KEY"] = ""
 
 db = MongoEngine(app)
 
