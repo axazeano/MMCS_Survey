@@ -1,12 +1,13 @@
 import os, sys
 from flask.ext.script import Manager, Server, Shell
-from MMCS_Survey import app, db
 import model
+from app import create_app, db
 
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
 
 
+app = create_app()
 manager = Manager(app)
 
 manager.add_command("runserver", Server(
