@@ -16,4 +16,10 @@ def create_app():
     from .survey import survey as survey_blueprint
     app.register_blueprint(survey_blueprint,  url_prefix='/survey')
 
+    from .auth import auth as auth_blueprint
+    app.register_blueprint(auth_blueprint, url_prefix='/auth')
+
+    from .maintaining import maintaining as maintaining_blueprint
+    app.register_blueprint(maintaining_blueprint, url_prefix='/maintaining')
+
     return app

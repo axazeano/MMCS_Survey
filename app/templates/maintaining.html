@@ -2,8 +2,24 @@
 {% block title %}Администрирование системы анкетирования{% endblock %}
 {% block body %}
 
-    <div class="vert-centered">
-         <a class="waves-effect waves-light btn blue">Создание анкет</a>
+    <nav class="blue lighten-2">
+    <div class="nav-wrapper" style="position: relative; float: left">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+              <input type="text" style="display: inline; float: left">
+              <input type="text" style="display: inline; float: left;">
+              <input type="text" style="display: inline">
+
+      </ul>
+    </div>
+  </nav>
+
+    <div class="full-center">
+         <a class="waves-effect waves-light btn blue w-100">Создание анкет</a>
+        <br><br>
+         <a class="waves-effect waves-light btn blue w-100">Запуск опроса</a>
+        <br><br>
+         <a class="waves-effect waves-light btn blue w-100">Анализ результатов анкетирований</a>
     </div>
 
 {% endblock %}

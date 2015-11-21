@@ -1,1 +1,1 @@
-.usual-font{font-size:1.2em}.fit-parent{width:100%}body{display:flex;min-height:100vh;flex-direction:column;margin:0;padding:0}main{flex:1 0 auto}
+.usual-font{font-size:1.2em}.fit-parent{width:100%}.full-center{text-align:center;top:0;left:0;bottom:0;right:0;margin:auto;width:300px}.w-100{width:100%}body{display:flex;min-height:100vh;flex-direction:column;margin:0;padding:0}main{flex:1 0 auto}
